@@ -1,0 +1,15 @@
+=== Rule Validation Summary ===
+
+Train size: 12000 
+Test size:  3000 
+
+Confusion Matrix:
+             Actual
+Predicted     normal crash harsh_brake
+  normal        2561    11          85
+  crash            0   168           0
+  harsh_brake      0     9         166
+  unknown          0     0           0
+
+Overall Accuracy (covered): 96.5%
+Rule Coverage:              100.0%

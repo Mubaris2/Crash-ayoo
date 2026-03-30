@@ -1,111 +1,167 @@
      lhs                                    rhs                                   support confidence   coverage       lift count
-[1]  {event_type=harsh_brake}            => {accel_state=hard_deceleration}    0.02166667  1.0000000 0.02166667 37.3134328   325
-[2]  {event_type=harsh_brake}            => {vibration_state=normal_vibration} 0.02166667  1.0000000 0.02166667  1.0034787   325
-[3]  {speed_level=high_speed}            => {vibration_state=normal_vibration} 0.24860000  1.0000000 0.24860000  1.0034787  3729
-[4]  {accel_state=normal_accel}          => {event_type=normal}                0.97320000  1.0000000 0.97320000  1.0275380 14598
-[5]  {event_type=normal}                 => {accel_state=normal_accel}         0.97320000  1.0000000 0.97320000  1.0275380 14598
-[6]  {accel_state=normal_accel}          => {vibration_state=normal_vibration} 0.97320000  1.0000000 0.97320000  1.0034787 14598
-[7]  {event_type=normal}                 => {vibration_state=normal_vibration} 0.97320000  1.0000000 0.97320000  1.0034787 14598
-[8]  {speed_level=normal_speed,                                                                                                 
-      event_type=harsh_brake}            => {accel_state=hard_deceleration}    0.01533333  1.0000000 0.01533333 37.3134328   230
-[9]  {accel_state=hard_deceleration,                                                                                            
-      event_type=harsh_brake}            => {vibration_state=normal_vibration} 0.02166667  1.0000000 0.02166667  1.0034787   325
-[10] {vibration_state=normal_vibration,                                                                                         
-      event_type=harsh_brake}            => {accel_state=hard_deceleration}    0.02166667  1.0000000 0.02166667 37.3134328   325
+[1]  {vibration_state=high_vibration}    => {event_type=crash}                 0.06033333  1.0000000 0.06033333 15.0300601   905
+[2]  {event_type=harsh_brake}            => {vibration_state=normal_vibration} 0.07980000  1.0000000 0.07980000  1.0642072  1197
+[3]  {event_type=normal}                 => {vibration_state=normal_vibration} 0.85366667  1.0000000 0.85366667  1.0642072 12805
+[4]  {accel_state=hard_deceleration,                                                                                            
+      vibration_state=high_vibration}    => {event_type=crash}                 0.06020000  1.0000000 0.06020000 15.0300601   903
+[5]  {speed_level=high_speed,                                                                                                   
+      vibration_state=high_vibration}    => {event_type=crash}                 0.03306667  1.0000000 0.03306667 15.0300601   496
+[6]  {speed_level=normal_speed,                                                                                                 
+      vibration_state=high_vibration}    => {event_type=crash}                 0.02726667  1.0000000 0.02726667 15.0300601   409
+[7]  {accel_state=hard_deceleration,                                                                                            
+      event_type=harsh_brake}            => {vibration_state=normal_vibration} 0.07460000  1.0000000 0.07460000  1.0642072  1119
+[8]  {speed_level=high_speed,                                                                                                   
+      event_type=harsh_brake}            => {vibration_state=normal_vibration} 0.02366667  1.0000000 0.02366667  1.0642072   355
+[9]  {speed_level=normal_speed,                                                                                                 
+      event_type=harsh_brake}            => {vibration_state=normal_vibration} 0.05613333  1.0000000 0.05613333  1.0642072   842
+[10] {speed_level=high_speed,                                                                                                   
+      event_type=normal}                 => {vibration_state=normal_vibration} 0.32866667  1.0000000 0.32866667  1.0642072  4930
 [11] {speed_level=normal_speed,                                                                                                 
-      event_type=harsh_brake}            => {vibration_state=normal_vibration} 0.01533333  1.0000000 0.01533333  1.0034787   230
-[12] {speed_level=high_speed,                                                                                                   
-      accel_state=normal_accel}          => {event_type=normal}                0.24226667  1.0000000 0.24226667  1.0275380  3634
-[13] {speed_level=high_speed,                                                                                                   
-      event_type=normal}                 => {accel_state=normal_accel}         0.24226667  1.0000000 0.24226667  1.0275380  3634
+      event_type=normal}                 => {accel_state=normal_accel}         0.52500000  1.0000000 0.52500000  1.1643251  7875
+[12] {speed_level=normal_speed,                                                                                                 
+      event_type=normal}                 => {vibration_state=normal_vibration} 0.52500000  1.0000000 0.52500000  1.0642072  7875
+[13] {accel_state=normal_accel,                                                                                                 
+      event_type=normal}                 => {vibration_state=normal_vibration} 0.85353333  1.0000000 0.85353333  1.0642072 12803
 [14] {speed_level=high_speed,                                                                                                   
-      accel_state=normal_accel}          => {vibration_state=normal_vibration} 0.24226667  1.0000000 0.24226667  1.0034787  3634
-[15] {speed_level=high_speed,                                                                                                   
-      event_type=normal}                 => {vibration_state=normal_vibration} 0.24226667  1.0000000 0.24226667  1.0034787  3634
-[16] {speed_level=normal_speed,                                                                                                 
-      accel_state=normal_accel}          => {event_type=normal}                0.73093333  1.0000000 0.73093333  1.0275380 10964
-[17] {speed_level=normal_speed,                                                                                                 
-      event_type=normal}                 => {accel_state=normal_accel}         0.73093333  1.0000000 0.73093333  1.0275380 10964
-[18] {speed_level=normal_speed,                                                                                                 
-      accel_state=normal_accel}          => {vibration_state=normal_vibration} 0.73093333  1.0000000 0.73093333  1.0034787 10964
-[19] {speed_level=normal_speed,                                                                                                 
-      event_type=normal}                 => {vibration_state=normal_vibration} 0.73093333  1.0000000 0.73093333  1.0034787 10964
-[20] {accel_state=normal_accel,                                                                                                 
-      event_type=normal}                 => {vibration_state=normal_vibration} 0.97320000  1.0000000 0.97320000  1.0034787 14598
-[21] {accel_state=normal_accel,                                                                                                 
-      vibration_state=normal_vibration}  => {event_type=normal}                0.97320000  1.0000000 0.97320000  1.0275380 14598
-[22] {vibration_state=normal_vibration,                                                                                         
-      event_type=normal}                 => {accel_state=normal_accel}         0.97320000  1.0000000 0.97320000  1.0275380 14598
-[23] {speed_level=normal_speed,                                                                                                 
       accel_state=hard_deceleration,                                                                                            
-      event_type=harsh_brake}            => {vibration_state=normal_vibration} 0.01533333  1.0000000 0.01533333  1.0034787   230
-[24] {speed_level=normal_speed,                                                                                                 
+      vibration_state=high_vibration}    => {event_type=crash}                 0.03300000  1.0000000 0.03300000 15.0300601   495
+[15] {speed_level=normal_speed,                                                                                                 
+      accel_state=hard_deceleration,                                                                                            
+      vibration_state=high_vibration}    => {event_type=crash}                 0.02720000  1.0000000 0.02720000 15.0300601   408
+[16] {speed_level=high_speed,                                                                                                   
+      accel_state=hard_deceleration,                                                                                            
+      event_type=harsh_brake}            => {vibration_state=normal_vibration} 0.02226667  1.0000000 0.02226667  1.0642072   334
+[17] {speed_level=normal_speed,                                                                                                 
+      accel_state=hard_deceleration,                                                                                            
+      event_type=harsh_brake}            => {vibration_state=normal_vibration} 0.05233333  1.0000000 0.05233333  1.0642072   785
+[18] {speed_level=high_speed,                                                                                                   
+      accel_state=normal_accel,                                                                                                 
+      event_type=normal}                 => {vibration_state=normal_vibration} 0.32853333  1.0000000 0.32853333  1.0642072  4928
+[19] {speed_level=normal_speed,                                                                                                 
+      accel_state=normal_accel,                                                                                                 
+      event_type=normal}                 => {vibration_state=normal_vibration} 0.52500000  1.0000000 0.52500000  1.0642072  7875
+[20] {speed_level=normal_speed,                                                                                                 
       vibration_state=normal_vibration,                                                                                         
-      event_type=harsh_brake}            => {accel_state=hard_deceleration}    0.01533333  1.0000000 0.01533333 37.3134328   230
+      event_type=normal}                 => {accel_state=normal_accel}         0.52500000  1.0000000 0.52500000  1.1643251  7875
+[21] {speed_level=normal_speed,                                                                                                 
+      accel_state=normal_accel}          => {vibration_state=normal_vibration} 0.52880000  0.9998739 0.52886667  1.0640730  7932
+[22] {accel_state=normal_accel}          => {vibration_state=normal_vibration} 0.85873333  0.9998448 0.85886667  1.0640420 12881
+[23] {event_type=normal}                 => {accel_state=normal_accel}         0.85353333  0.9998438 0.85366667  1.1641432 12803
+[24] {vibration_state=normal_vibration,                                                                                         
+      event_type=normal}                 => {accel_state=normal_accel}         0.85353333  0.9998438 0.85366667  1.1641432 12803
 [25] {speed_level=high_speed,                                                                                                   
-      accel_state=normal_accel,                                                                                                 
-      event_type=normal}                 => {vibration_state=normal_vibration} 0.24226667  1.0000000 0.24226667  1.0034787  3634
+      accel_state=normal_accel}          => {vibration_state=normal_vibration} 0.32993333  0.9997980 0.33000000  1.0639922  4949
 [26] {speed_level=high_speed,                                                                                                   
-      accel_state=normal_accel,                                                                                                 
-      vibration_state=normal_vibration}  => {event_type=normal}                0.24226667  1.0000000 0.24226667  1.0275380  3634
+      event_type=normal}                 => {accel_state=normal_accel}         0.32853333  0.9995943 0.32866667  1.1638527  4928
 [27] {speed_level=high_speed,                                                                                                   
       vibration_state=normal_vibration,                                                                                         
-      event_type=normal}                 => {accel_state=normal_accel}         0.24226667  1.0000000 0.24226667  1.0275380  3634
-[28] {speed_level=normal_speed,                                                                                                 
+      event_type=normal}                 => {accel_state=normal_accel}         0.32853333  0.9995943 0.32866667  1.1638527  4928
+[28] {speed_level=high_speed,                                                                                                   
+      event_type=crash}                  => {accel_state=hard_deceleration}    0.03640000  0.9981718 0.03646667  7.0725450   546
+[29] {event_type=crash}                  => {accel_state=hard_deceleration}    0.06640000  0.9979960 0.06653333  7.0712990   996
+[30] {speed_level=high_speed,                                                                                                   
+      vibration_state=high_vibration}    => {accel_state=hard_deceleration}    0.03300000  0.9979839 0.03306667  7.0712131   495
+[31] {speed_level=high_speed,                                                                                                   
+      vibration_state=high_vibration,                                                                                           
+      event_type=crash}                  => {accel_state=hard_deceleration}    0.03300000  0.9979839 0.03306667  7.0712131   495
+[32] {vibration_state=high_vibration}    => {accel_state=hard_deceleration}    0.06020000  0.9977901 0.06033333  7.0698398   903
+[33] {vibration_state=high_vibration,                                                                                           
+      event_type=crash}                  => {accel_state=hard_deceleration}    0.06020000  0.9977901 0.06033333  7.0698398   903
+[34] {speed_level=normal_speed,                                                                                                 
+      event_type=crash}                  => {accel_state=hard_deceleration}    0.03000000  0.9977827 0.03006667  7.0697877   450
+[35] {speed_level=normal_speed,                                                                                                 
+      vibration_state=high_vibration}    => {accel_state=hard_deceleration}    0.02720000  0.9975550 0.02726667  7.0681744   408
+[36] {speed_level=normal_speed,                                                                                                 
+      vibration_state=high_vibration,                                                                                           
+      event_type=crash}                  => {accel_state=hard_deceleration}    0.02720000  0.9975550 0.02726667  7.0681744   408
+[37] {speed_level=high_speed,                                                                                                   
       accel_state=normal_accel,                                                                                                 
-      event_type=normal}                 => {vibration_state=normal_vibration} 0.73093333  1.0000000 0.73093333  1.0034787 10964
-[29] {speed_level=normal_speed,                                                                                                 
-      accel_state=normal_accel,                                                                                                 
-      vibration_state=normal_vibration}  => {event_type=normal}                0.73093333  1.0000000 0.73093333  1.0275380 10964
-[30] {speed_level=normal_speed,                                                                                                 
-      vibration_state=normal_vibration,                                                                                         
-      event_type=normal}                 => {accel_state=normal_accel}         0.73093333  1.0000000 0.73093333  1.0275380 10964
-[31] {speed_level=normal_speed}          => {vibration_state=normal_vibration} 0.74793333  0.9953864 0.75140000  0.9988491 11219
-[32] {speed_level=normal_speed,                                                                                                 
-      vibration_state=normal_vibration}  => {accel_state=normal_accel}         0.73093333  0.9772707 0.74793333  1.0041828 10964
-[33] {speed_level=normal_speed,                                                                                                 
-      vibration_state=normal_vibration}  => {event_type=normal}                0.73093333  0.9772707 0.74793333  1.0041828 10964
-[34] {vibration_state=normal_vibration}  => {accel_state=normal_accel}         0.97320000  0.9765855 0.99653333  1.0034787 14598
-[35] {vibration_state=normal_vibration}  => {event_type=normal}                0.97320000  0.9765855 0.99653333  1.0034787 14598
-[36] {speed_level=high_speed}            => {accel_state=normal_accel}         0.24226667  0.9745240 0.24860000  1.0013605  3634
-[37] {speed_level=high_speed}            => {event_type=normal}                0.24226667  0.9745240 0.24860000  1.0013605  3634
+      vibration_state=normal_vibration}  => {event_type=normal}                0.32853333  0.9957567 0.32993333  1.1664468  4928
 [38] {speed_level=high_speed,                                                                                                   
-      vibration_state=normal_vibration}  => {accel_state=normal_accel}         0.24226667  0.9745240 0.24860000  1.0013605  3634
-[39] {speed_level=high_speed,                                                                                                   
-      vibration_state=normal_vibration}  => {event_type=normal}                0.24226667  0.9745240 0.24860000  1.0013605  3634
-[40] {speed_level=normal_speed}          => {accel_state=normal_accel}         0.73093333  0.9727620 0.75140000  0.9995499 10964
-[41] {speed_level=normal_speed}          => {event_type=normal}                0.73093333  0.9727620 0.75140000  0.9995499 10964
-[42] {accel_state=hard_deceleration,                                                                                            
-      vibration_state=normal_vibration}  => {event_type=harsh_brake}           0.02166667  0.9285714 0.02333333 42.8571429   325
-[43] {speed_level=normal_speed,                                                                                                 
+      accel_state=normal_accel}          => {event_type=normal}                0.32853333  0.9955556 0.33000000  1.1662111  4928
+[39] {accel_state=normal_accel,                                                                                                 
+      vibration_state=normal_vibration}  => {event_type=normal}                0.85353333  0.9939446 0.85873333  1.1643240 12803
+[40] {accel_state=normal_accel}          => {event_type=normal}                0.85353333  0.9937903 0.85886667  1.1641432 12803
+[41] {speed_level=normal_speed,                                                                                                 
+      accel_state=normal_accel,                                                                                                 
+      vibration_state=normal_vibration}  => {event_type=normal}                0.52500000  0.9928139 0.52880000  1.1629995  7875
+[42] {speed_level=normal_speed,                                                                                                 
+      accel_state=normal_accel}          => {event_type=normal}                0.52500000  0.9926888 0.52886667  1.1628529  7875
+[43] {speed_level=normal_speed}          => {vibration_state=normal_vibration} 0.58393333  0.9553883 0.61120000  1.0167311  8759
+[44] {speed_level=normal_speed,                                                                                                 
       accel_state=hard_deceleration,                                                                                            
-      vibration_state=normal_vibration}  => {event_type=harsh_brake}           0.01533333  0.9019608 0.01700000 41.6289593   230
-[44] {accel_state=hard_deceleration}     => {vibration_state=normal_vibration} 0.02333333  0.8706468 0.02680000  0.8736755   350
-[45] {speed_level=normal_speed,                                                                                                 
-      accel_state=hard_deceleration}     => {vibration_state=normal_vibration} 0.01700000  0.8306189 0.02046667  0.8335084   255
-[46] {accel_state=hard_deceleration}     => {event_type=harsh_brake}           0.02166667  0.8084577 0.02680000 37.3134328   325
-[47] {accel_state=hard_deceleration}     => {speed_level=normal_speed}         0.02046667  0.7636816 0.02680000  1.0163449   307
-[48] {accel_state=normal_accel}          => {speed_level=normal_speed}         0.73093333  0.7510618 0.97320000  0.9995499 10964
-[49] {event_type=normal}                 => {speed_level=normal_speed}         0.73093333  0.7510618 0.97320000  0.9995499 10964
-[50] {accel_state=normal_accel,                                                                                                 
-      event_type=normal}                 => {speed_level=normal_speed}         0.73093333  0.7510618 0.97320000  0.9995499 10964
-[51] {accel_state=normal_accel,                                                                                                 
-      vibration_state=normal_vibration}  => {speed_level=normal_speed}         0.73093333  0.7510618 0.97320000  0.9995499 10964
-[52] {vibration_state=normal_vibration,                                                                                         
-      event_type=normal}                 => {speed_level=normal_speed}         0.73093333  0.7510618 0.97320000  0.9995499 10964
-[53] {accel_state=normal_accel,                                                                                                 
+      vibration_state=normal_vibration}  => {event_type=harsh_brake}           0.05233333  0.9492140 0.05513333 11.8949126   785
+[45] {speed_level=high_speed,                                                                                                   
+      event_type=harsh_brake}            => {accel_state=hard_deceleration}    0.02226667  0.9408451 0.02366667  6.6663562   334
+[46] {speed_level=high_speed,                                                                                                   
       vibration_state=normal_vibration,                                                                                         
-      event_type=normal}                 => {speed_level=normal_speed}         0.73093333  0.7510618 0.97320000  0.9995499 10964
-[54] {vibration_state=normal_vibration}  => {speed_level=normal_speed}         0.74793333  0.7505352 0.99653333  0.9988491 11219
-[55] {speed_level=normal_speed,                                                                                                 
-      accel_state=hard_deceleration}     => {event_type=harsh_brake}           0.01533333  0.7491857 0.02046667 34.5778001   230
-[56] {accel_state=hard_deceleration,                                                                                            
-      vibration_state=normal_vibration}  => {speed_level=normal_speed}         0.01700000  0.7285714 0.02333333  0.9696186   255
-[57] {event_type=harsh_brake}            => {speed_level=normal_speed}         0.01533333  0.7076923 0.02166667  0.9418317   230
-[58] {accel_state=hard_deceleration,                                                                                            
-      event_type=harsh_brake}            => {speed_level=normal_speed}         0.01533333  0.7076923 0.02166667  0.9418317   230
-[59] {vibration_state=normal_vibration,                                                                                         
-      event_type=harsh_brake}            => {speed_level=normal_speed}         0.01533333  0.7076923 0.02166667  0.9418317   230
-[60] {accel_state=hard_deceleration,                                                                                            
+      event_type=harsh_brake}            => {accel_state=hard_deceleration}    0.02226667  0.9408451 0.02366667  6.6663562   334
+[47] {event_type=harsh_brake}            => {accel_state=hard_deceleration}    0.07460000  0.9348371 0.07980000  6.6237867  1119
+[48] {vibration_state=normal_vibration,                                                                                         
+      event_type=harsh_brake}            => {accel_state=hard_deceleration}    0.07460000  0.9348371 0.07980000  6.6237867  1119
+[49] {speed_level=normal_speed,                                                                                                 
+      event_type=harsh_brake}            => {accel_state=hard_deceleration}    0.05233333  0.9323040 0.05613333  6.6058387   785
+[50] {speed_level=normal_speed,                                                                                                 
       vibration_state=normal_vibration,                                                                                         
-      event_type=harsh_brake}            => {speed_level=normal_speed}         0.01533333  0.7076923 0.02166667  0.9418317   230
+      event_type=harsh_brake}            => {accel_state=hard_deceleration}    0.05233333  0.9323040 0.05613333  6.6058387   785
+[51] {speed_level=high_speed,                                                                                                   
+      vibration_state=normal_vibration}  => {accel_state=normal_accel}         0.32993333  0.9274738 0.35573333  1.0798810  4949
+[52] {speed_level=high_speed,                                                                                                   
+      vibration_state=normal_vibration}  => {event_type=normal}                0.32866667  0.9239130 0.35573333  1.0822878  4930
+[53] {accel_state=hard_deceleration,                                                                                            
+      vibration_state=normal_vibration}  => {event_type=harsh_brake}           0.07460000  0.9217463 0.08093333 11.5507054  1119
+[54] {speed_level=high_speed}            => {vibration_state=normal_vibration} 0.35573333  0.9149520 0.38880000  0.9736985  5336
+[55] {vibration_state=normal_vibration}  => {accel_state=normal_accel}         0.85873333  0.9138702 0.93966667  1.0640420 12881
+[56] {vibration_state=normal_vibration}  => {event_type=normal}                0.85366667  0.9084782 0.93966667  1.0642072 12805
+[57] {speed_level=normal_speed,                                                                                                 
+      event_type=crash}                  => {vibration_state=high_vibration}   0.02726667  0.9068736 0.03006667 15.0310544   409
+[58] {event_type=crash}                  => {vibration_state=high_vibration}   0.06033333  0.9068136 0.06653333 15.0300601   905
+[59] {speed_level=high_speed,                                                                                                   
+      event_type=crash}                  => {vibration_state=high_vibration}   0.03306667  0.9067642 0.03646667 15.0292404   496
+[60] {speed_level=normal_speed,                                                                                                 
+      accel_state=hard_deceleration,                                                                                            
+      event_type=crash}                  => {vibration_state=high_vibration}   0.02720000  0.9066667 0.03000000 15.0276243   408
+[61] {accel_state=hard_deceleration,                                                                                            
+      event_type=crash}                  => {vibration_state=high_vibration}   0.06020000  0.9066265 0.06640000 15.0269587   903
+[62] {speed_level=high_speed,                                                                                                   
+      accel_state=hard_deceleration,                                                                                            
+      event_type=crash}                  => {vibration_state=high_vibration}   0.03300000  0.9065934 0.03640000 15.0264101   495
+[63] {speed_level=normal_speed,                                                                                                 
+      vibration_state=normal_vibration}  => {accel_state=normal_accel}         0.52880000  0.9055828 0.58393333  1.0543928  7932
+[64] {speed_level=normal_speed,                                                                                                 
+      vibration_state=normal_vibration}  => {event_type=normal}                0.52500000  0.8990752 0.58393333  1.0531924  7875
+[65] {speed_level=normal_speed}          => {accel_state=normal_accel}         0.52886667  0.8652923 0.61120000  1.0074816  7933
+[66] {speed_level=high_speed,                                                                                                   
+      accel_state=hard_deceleration,                                                                                            
+      vibration_state=normal_vibration}  => {event_type=harsh_brake}           0.02226667  0.8630491 0.02580000 10.8151516   334
+[67] {speed_level=normal_speed}          => {event_type=normal}                0.52500000  0.8589660 0.61120000  1.0062077  7875
+[68] {speed_level=high_speed}            => {accel_state=normal_accel}         0.33000000  0.8487654 0.38880000  0.9882389  4950
+[69] {speed_level=high_speed}            => {event_type=normal}                0.32866667  0.8453361 0.38880000  0.9902414  4930
+[70] {event_type=harsh_brake}            => {speed_level=normal_speed}         0.05613333  0.7034252 0.07980000  1.1508921   842
+[71] {vibration_state=normal_vibration,                                                                                         
+      event_type=harsh_brake}            => {speed_level=normal_speed}         0.05613333  0.7034252 0.07980000  1.1508921   842
+[72] {accel_state=hard_deceleration,                                                                                            
+      event_type=harsh_brake}            => {speed_level=normal_speed}         0.05233333  0.7015192 0.07460000  1.1477736   785
+[73] {accel_state=hard_deceleration,                                                                                            
+      vibration_state=normal_vibration,                                                                                         
+      event_type=harsh_brake}            => {speed_level=normal_speed}         0.05233333  0.7015192 0.07460000  1.1477736   785
+[74] {accel_state=hard_deceleration,                                                                                            
+      vibration_state=normal_vibration}  => {speed_level=normal_speed}         0.05513333  0.6812191 0.08093333  1.1145601   827
+[75] {speed_level=normal_speed,                                                                                                 
+      accel_state=hard_deceleration}     => {vibration_state=normal_vibration} 0.05513333  0.6696356 0.08233333  0.7126310   827
+[76] {speed_level=normal_speed,                                                                                                 
+      accel_state=hard_deceleration}     => {event_type=harsh_brake}           0.05233333  0.6356275 0.08233333  7.9652573   785
+[77] {vibration_state=normal_vibration}  => {speed_level=normal_speed}         0.58393333  0.6214260 0.93966667  1.0167311  8759
+[78] {speed_level=high_speed,                                                                                                   
+      accel_state=hard_deceleration}     => {event_type=crash}                 0.03640000  0.6190476 0.05880000  9.3043229   546
+[79] {accel_state=normal_accel,                                                                                                 
+      vibration_state=normal_vibration}  => {speed_level=normal_speed}         0.52880000  0.6157907 0.85873333  1.0075110  7932
+[80] {accel_state=normal_accel}          => {speed_level=normal_speed}         0.52886667  0.6157727 0.85886667  1.0074816  7933
+[81] {accel_state=normal_accel,                                                                                                 
+      event_type=normal}                 => {speed_level=normal_speed}         0.52500000  0.6150902 0.85353333  1.0063649  7875
+[82] {accel_state=normal_accel,                                                                                                 
+      vibration_state=normal_vibration,                                                                                         
+      event_type=normal}                 => {speed_level=normal_speed}         0.52500000  0.6150902 0.85353333  1.0063649  7875
+[83] {event_type=normal}                 => {speed_level=normal_speed}         0.52500000  0.6149941 0.85366667  1.0062077  7875
+[84] {vibration_state=normal_vibration,                                                                                         
+      event_type=normal}                 => {speed_level=normal_speed}         0.52500000  0.6149941 0.85366667  1.0062077  7875

@@ -134,3 +134,135 @@ capture.output(
 )
 
 print("Event Mining Completed Successfully")
+
+# ----------------------------------------
+# 10. Rule Validation (Train/Test Split)
+# ----------------------------------------
+
+set.seed(42)
+n <- nrow(mining_data)
+train_idx <- sample(seq_len(n), size = floor(0.8 * n))
+
+train_data <- mining_data[train_idx, ]
+test_data  <- mining_data[-train_idx, ]
+
+# Mine rules on training set only
+train_transactions <- as(train_data, "transactions")
+
+train_rules <- apriori(
+  train_transactions,
+  parameter = list(supp = 0.01, conf = 0.6, minlen = 2)
+)
+
+# Filter to rules that predict event_type on RHS
+event_rules <- subset(train_rules, rhs %pin% "event_type")
+event_rules <- sort(event_rules, by = "confidence", decreasing = TRUE)
+
+cat("\nRules used for validation (predicting event_type):\n")
+inspect(event_rules)
+
+# ----------------------------------------
+# 11. Apply Rules to Test Set & Confusion Matrix
+# ----------------------------------------
+
+# Helper: apply highest-confidence matching rule to a single row
+# Pre-build rule lookup from arules S4 object
+build_rule_lookup <- function(rules) {
+  rules_df   <- as(rules, "data.frame")          # lhs, rhs, support, confidence...
+  lhs_labels <- labels(lhs(rules))               # e.g. "{speed_level=high_speed,accel_state=...}"
+  rhs_labels <- labels(rhs(rules))               # e.g. "{event_type=crash}"
+
+  # Parse LHS into character vectors of items
+  lhs_parsed <- lapply(lhs_labels, function(x) {
+    x <- gsub("\\{|\\}", "", x)
+    trimws(strsplit(x, ",")[[1]])
+  })
+
+  # Extract event_type value from RHS
+  rhs_event <- regmatches(
+    rhs_labels,
+    regexpr("(?<=event_type=)\\w+", rhs_labels, perl = TRUE)
+  )
+
+  list(
+    lhs      = lhs_parsed,
+    rhs      = rhs_event,
+    conf     = rules_df$confidence
+  )
+}
+
+predict_event <- function(row, lookup) {
+  row_items <- paste0(names(row), "=", unlist(row))
+
+  for (i in seq_along(lookup$lhs)) {
+    if (length(lookup$rhs[i]) == 0 || lookup$rhs[i] == "") next
+    if (all(lookup$lhs[[i]] %in% row_items)) {
+      return(lookup$rhs[i])
+    }
+  }
+  return("unknown")
+}
+
+# Build feature columns for test set (exclude event_type for prediction)
+test_features <- test_data %>% select(-event_type)
+
+# Build lookup once (efficient — avoids re-parsing per row)
+lookup <- build_rule_lookup(event_rules)
+
+predictions <- sapply(seq_len(nrow(test_features)), function(i) {
+  predict_event(test_features[i, ], lookup)
+})
+
+actual <- test_data$event_type
+
+# Confusion matrix
+all_labels <- union(unique(actual), unique(predictions))
+all_labels <- all_labels[all_labels != "unknown"]
+
+conf_matrix <- table(
+  Predicted = factor(predictions, levels = c(all_labels, "unknown")),
+  Actual    = factor(actual,      levels = all_labels)
+)
+
+cat("\n--- Confusion Matrix ---\n")
+print(conf_matrix)
+
+# Per-class precision, recall, F1
+cat("\n--- Per-Class Metrics ---\n")
+metrics <- lapply(all_labels, function(cls) {
+  tp <- sum(predictions == cls & actual == cls)
+  fp <- sum(predictions == cls & actual != cls)
+  fn <- sum(predictions != cls & actual == cls)
+
+  precision <- if ((tp + fp) > 0) tp / (tp + fp) else NA
+  recall    <- if ((tp + fn) > 0) tp / (tp + fn) else NA
+  f1        <- if (!is.na(precision) && !is.na(recall) && (precision + recall) > 0)
+                 2 * precision * recall / (precision + recall) else NA
+
+  cat(sprintf("%-15s  Precision: %.3f  Recall: %.3f  F1: %.3f\n",
+              cls,
+              ifelse(is.na(precision), 0, precision),
+              ifelse(is.na(recall),    0, recall),
+              ifelse(is.na(f1),        0, f1)))
+})
+
+# Overall accuracy (excluding unknowns)
+known_mask <- predictions != "unknown"
+accuracy <- sum(predictions[known_mask] == actual[known_mask]) / sum(known_mask)
+coverage <- mean(known_mask)
+
+cat(sprintf("\nOverall Accuracy (on covered rows): %.1f%%\n", accuracy * 100))
+cat(sprintf("Rule Coverage: %.1f%% of test rows matched a rule\n", coverage * 100))
+
+# Save validation summary
+capture.output({
+  cat("=== Rule Validation Summary ===\n\n")
+  cat("Train size:", nrow(train_data), "\n")
+  cat("Test size: ", nrow(test_data),  "\n\n")
+  cat("Confusion Matrix:\n")
+  print(conf_matrix)
+  cat(sprintf("\nOverall Accuracy (covered): %.1f%%\n", accuracy * 100))
+  cat(sprintf("Rule Coverage:              %.1f%%\n",  coverage * 100))
+}, file = "results/validation_summary.txt")
+
+print("Validation Completed")
