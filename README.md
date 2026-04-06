@@ -24,4 +24,4 @@ source("scripts/event_mining.R")    # mines rules + runs validation
 * Ashwin S
 * Adnan Omar
 * Mohamed Sheik Mubaris
-* Muntasir P V
+* Muntasir V P
