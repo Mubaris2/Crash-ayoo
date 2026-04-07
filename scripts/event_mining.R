@@ -93,13 +93,37 @@ inspect(crash_rules)
 # 7. Visualize Association Rules
 # ----------------------------------------
 
-png("visualization/association_rules_graph.png")
-plot(rules_sorted, method = "graph")
-dev.off()
+cat("\nGenerating visualizations...\n")
 
-png("visualization/crash_rules_graph.png")
-plot(rules_sorted, method = "graph")
+# Extract rule quality metrics for plotting
+rules_df <- as(rules_sorted, "data.frame")
+
+# Scatter plot using base R (always works)
+png("visualization/association_rules_scatter.png", width = 800, height = 600)
+plot(rules_df$support, rules_df$confidence, 
+     col = rgb(0, 0, 1, alpha = 0.5),
+     pch = 19, cex = 1.5,
+     xlab = "Support", ylab = "Confidence",
+     main = "Association Rules: Support vs Confidence")
+grid()
 dev.off()
+cat("✓ Association rules scatter plot saved\n")
+
+# Crash rules scatter plot
+if (length(crash_rules) > 0) {
+  crash_df <- as(crash_rules, "data.frame")
+  png("visualization/crash_rules_scatter.png", width = 800, height = 600)
+  plot(crash_df$support, crash_df$confidence,
+       col = rgb(1, 0, 0, alpha = 0.6),
+       pch = 19, cex = 2,
+       xlab = "Support", ylab = "Confidence",
+       main = "Crash Rules: Support vs Confidence")
+  grid()
+  dev.off()
+  cat("✓ Crash rules scatter plot saved\n")
+} else {
+  cat("No crash rules to visualize (support too low)\n")
+}
 
 # ----------------------------------------
 # 8. Crash Event Analysis
